@@ -6,7 +6,7 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 16:38:52 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/05 16:43:00 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/08 17:58:36 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = 
+SRCS = main.cpp Contact.cpp PhoneBook.cpp helpers.cpp
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
