@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:48:52 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/08 17:23:48 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/11 13:21:50 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ class Contact
 
 		//Destructor
 		~Contact();
+
+
+		//Getter functions
+		std::string	getFirstName() const;
+		std::string	getLastName() const;
+		std::string	getNickName() const;
+		std::string	getPhoneNumber() const;
+		std::string	getDarkSecret() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:48:50 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/08 17:23:47 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/11 13:21:38 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,29 @@ Contact::Contact(std::string fname, std::string lname, std::string nname,
 Contact::~Contact()
 {
 	
+}
+
+std::string	Contact::getFirstName(void) const
+{
+	return first_name;
+}
+
+std::string	Contact::getLastName(void) const
+{
+	return last_name;
+}
+
+std::string	Contact::getNickName(void) const
+{
+	return nickname;
+}
+
+std::string	Contact::getPhoneNumber(void) const
+{
+	return phone_number;
+}
+
+std::string	Contact::getDarkSecret(void) const
+{
+	return darkest_secret;
 }
