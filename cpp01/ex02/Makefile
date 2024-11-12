@@ -6,11 +6,11 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 18:01:24 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/12 18:02:45 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/12 18:14:39 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = reference
+NAME = brain
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
