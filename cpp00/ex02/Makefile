@@ -6,11 +6,11 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 16:39:16 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/11 16:40:02 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/12 11:27:36 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = Account
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
