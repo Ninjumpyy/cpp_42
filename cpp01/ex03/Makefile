@@ -6,11 +6,11 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 12:18:39 by thomas            #+#    #+#              #
-#    Updated: 2024/11/13 12:27:47 by thomas           ###   ########.fr        #
+#    Updated: 2024/11/13 13:47:50 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = output
+NAME = test
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
