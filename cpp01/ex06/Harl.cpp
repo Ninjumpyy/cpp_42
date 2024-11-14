@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 18:12:39 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/14 10:49:27 by thomas           ###   ########.fr       */
+/*   Created: 2024/11/14 10:50:10 by thomas            #+#    #+#             */
+/*   Updated: 2024/11/14 11:22:28 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,32 @@ void	Harl::complain(std::string level)
 		&Harl::error
 	};
 	
-	std::string levels[] = {"debug", "info", "warning", "error"};
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
 		{
-			(this->*functions[i])();
-			return;
+			switch (i)
+			{
+				case 0:
+					(this->*functions[0])();
+					std::cout << std::endl;
+					// fall through
+				case 1:
+					(this->*functions[1])();
+					std::cout << std::endl;
+					// fall through
+				case 2:
+					(this->*functions[2])();
+					std::cout << std::endl;
+					// fall through
+				case 3:
+					(this->*functions[3])();
+					std::cout << std::endl;
+					return;
+			}
 		}
 	}
-	std::cout << "Probably complaining about insignificant problems\n";
+	std::cout << "Probably complaining about insignificant problems\n\n";
 }

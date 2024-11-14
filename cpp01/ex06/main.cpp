@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 18:12:41 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/14 10:50:25 by thomas           ###   ########.fr       */
+/*   Created: 2024/11/14 10:50:15 by thomas            #+#    #+#             */
+/*   Updated: 2024/11/14 10:51:25 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
+#include <string>
+#include <iostream>
 
-# include <string>
-
-class Harl
+int main(int argc, char **argv)
 {
-	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
-
-	public:
-		void	complain(std::string level);
-};
-
-#endif
+	if (argc != 2)
+	{
+		std::cerr << "Usage: ./Harl level\n";
+		return (1);
+	}
+	
+	Harl	harl;
+	harl.complain(argv[1]);
+	return (0);
+}
