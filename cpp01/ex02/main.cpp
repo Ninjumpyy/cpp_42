@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:01:21 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/12 18:13:42 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/14 20:55:38 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int	main()
 {
 	std::string str = "HI THIS IS BRAIN";
-	std::string* stringPTR = &str;
-	std::string& stringREF = str;
+	std::string *stringPTR = &str;
+	std::string &stringREF = str;
 
 	std::cout << "The memory address of the string variable : "
 			  << &str << "\n";
