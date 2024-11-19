@@ -6,7 +6,13 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:10:20 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/19 16:10:21 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:18:34 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Point.hpp"
+
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	
+}
