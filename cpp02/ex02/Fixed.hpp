@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:03:41 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/19 14:50:54 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:36:43 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,34 @@ class Fixed
             ~Fixed();
 
 		//Comparison operators
-			bool &operator>(const Fixed &other);
-			bool &operator<(const Fixed &other);
-			bool &operator>=(const Fixed &other);
-			bool &operator<=(const Fixed &other);
-			bool &operator==(const Fixed &other);
-			bool &operator!=(const Fixed &other);
+			bool operator>(const Fixed &other) const;
+			bool operator<(const Fixed &other) const;
+			bool operator>=(const Fixed &other) const;
+			bool operator<=(const Fixed &other) const;
+			bool operator==(const Fixed &other) const;
+			bool operator!=(const Fixed &other) const;
 		
 		//Arithmetic operators
-			Fixed &operator+(const Fixed &other);
-			Fixed &operator-(const Fixed &other);
-			Fixed &operator*(const Fixed &other);
-			Fixed &operator/(const Fixed &other);
+			Fixed operator+(const Fixed &other) const;
+			Fixed operator-(const Fixed &other) const;
+			Fixed operator*(const Fixed &other) const;
+			Fixed operator/(const Fixed &other) const;
 		
 		//Decrement and Increment operators
 			Fixed &operator++();
-			Fixed &operator++(int);
+			Fixed operator++(int);
 			Fixed &operator--();
-			Fixed &operator--(int);
+			Fixed operator--(int);
             
         //Member functions
         int     getRawBits(void) const;
         void    setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		static Fixed &min(Fixed obj1, Fixed obj2);
-		static Fixed &min(const Fixed obj1, const Fixed obj2);
-		static Fixed &max(Fixed obj1, Fixed obj2);
-		static Fixed &max(const Fixed obj1, const Fixed obj2);
+		static Fixed &min(Fixed &obj1, Fixed &obj2);
+		static const Fixed &min(const Fixed &obj1, const Fixed &obj2);
+		static Fixed &max(Fixed &obj1, Fixed &obj2);
+		static const Fixed &max(const Fixed &obj1, const Fixed &obj2);
 
 		// Friend function for << operator
 			friend std::ostream& operator<<(std::ostream &os, const Fixed &other);

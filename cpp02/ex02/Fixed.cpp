@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:03:37 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/19 14:06:14 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:02:01 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,20 @@
 Fixed::Fixed()
 {
 	_value = 0;
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
 	_value = value << _bits;
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value)
 {
 	_value = static_cast<int>(roundf(value * 256));
-	std::cout << "Float constructor called" << std::endl;
 }
 
 // Copy Constructor
-Fixed::Fixed(const Fixed &other) : _value(other._value)
-{
-	std::cout << "Copy constructor called" << std::endl;
-}
+Fixed::Fixed(const Fixed &other) : _value(other._value) {}
 
 // Copy Assignment Operator
 Fixed& Fixed::operator=(const Fixed &other)
@@ -46,27 +40,109 @@ Fixed& Fixed::operator=(const Fixed &other)
 	{
 		_value = other._value;
 	}
-	std::cout << "Copy assignment operator called" << std::endl;
-
 	return (*this);
 }
 
 // Destructor
-Fixed::~Fixed()
+Fixed::~Fixed() {}
+
+// Comparison operators
+bool Fixed::operator>(const Fixed &other) const
 {
-	std::cout << "Destructor called" << std::endl;
+	return (_value > other._value);
+}
+
+bool Fixed::operator<(const Fixed &other) const
+{
+	return (_value < other._value);
+}
+
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return (_value >= other._value);
+}
+
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return (_value <= other._value);
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	return (_value == other._value);
+}
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return (_value != other._value);
+}
+
+// Arithmetic operators
+Fixed Fixed::operator+(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() + other.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed &other) const
+{
+	return (Fixed(this->toFloat() * other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed &other) const
+{
+	if (other._value == 0)
+	{
+		std::cerr << "Error: Division by zero\n";
+		return (Fixed(0));
+	}
+	return (Fixed(this->toFloat() / other.toFloat()));
+}
+
+// Decrement and Increment operators
+
+// Pre-increment : ++x
+Fixed &Fixed::operator++()
+{
+	_value++;
+	return (*this);
+}
+
+// Post-increment : x++
+Fixed Fixed::operator++(int)
+{
+	Fixed temp = *this;
+	_value++;
+	return (temp);
+}
+
+// Pre-increment : --x
+Fixed &Fixed::operator--()
+{
+	_value--;
+	return (*this);
+}
+
+// Post-increment : x--
+Fixed Fixed::operator--(int)
+{
+	Fixed temp = *this;
+	_value--;
+	return (temp);
 }
 
 // Member functions
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	_value = raw;
 }
 
@@ -78,6 +154,38 @@ float	Fixed::toFloat(void) const
 int	Fixed::toInt(void) const
 {
 	return (_value >> 8);
+}
+
+Fixed &Fixed::min(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 <= obj2)
+		return (obj1);
+	else
+		return (obj2);
+}
+
+const Fixed &Fixed::min(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 <= obj2)
+		return (obj1);
+	else
+		return (obj2);
+}
+
+Fixed &Fixed::max(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 >= obj2)
+		return (obj1);
+	else
+		return (obj2);
+}
+
+const Fixed &Fixed::max(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 >= obj2)
+		return (obj1);
+	else
+		return (obj2);
 }
 
 // Friend function for << operator
