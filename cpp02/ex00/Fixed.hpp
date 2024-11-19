@@ -6,12 +6,12 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:03:03 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/18 17:53:51 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:30:09 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 class Fixed
 {
@@ -22,13 +22,19 @@ class Fixed
     public:
         //Constructor
             Fixed();
+
         //Copy Constructor
             Fixed(const Fixed &other);
-        //Copy Assignment operator
+
+        //Copy Assignment Operator
+            Fixed &operator=(const Fixed &other);
 
         //Destructor
-        
+            ~Fixed();
+            
         //Member functions
-        int     getRawBits(void);
+        int     getRawBits(void) const;
         void    setRawBits(int const raw);
 };
+
+#endif

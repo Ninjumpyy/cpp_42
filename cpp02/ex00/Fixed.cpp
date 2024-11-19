@@ -6,12 +6,11 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:03:06 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/18 19:58:19 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:30:29 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <string>
 #include <iostream>
 
 // Constructor
@@ -25,4 +24,35 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed &other) : _value(other._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
+}
+
+// Copy Assignment Operator
+Fixed& Fixed::operator=(const Fixed &other)
+{
+	if (this != &other)
+	{
+		_value = other._value;
+	}
+	std::cout << "Copy assignment operator called" << std::endl;
+
+	return (*this);
+}
+
+// Destructor
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+// Member functions
+int	Fixed::getRawBits() const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (_value);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	_value = raw;
 }
