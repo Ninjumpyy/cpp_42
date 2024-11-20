@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:03:37 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/19 16:02:01 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:53:30 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ Fixed Fixed::operator/(const Fixed &other) const
 		std::cerr << "Error: Division by zero\n";
 		return (Fixed(0));
 	}
-	return (Fixed(this->toFloat() / other.toFloat()));
+	else
+		return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 // Decrement and Increment operators

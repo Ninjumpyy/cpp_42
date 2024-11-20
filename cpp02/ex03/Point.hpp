@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:10:26 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/19 16:19:13 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:44:27 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ class Point
 		//Copy Constructor
 		Point(const Point &other);
 
-		//Copy Assignment Operator
+		//Copy Assignment Operator deleted
 		Point &operator=(const Point &other);
 
 		//Destructor
 		~Point();
 
 		//Member Functions
+		const Fixed getX() const;
+		const Fixed getY() const;
 };
 
-#endif POINT_HPP
+#endif
