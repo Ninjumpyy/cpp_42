@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
+#    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 16:04:39 by thomas            #+#    #+#              #
-#    Updated: 2024/11/21 17:18:32 by thomas           ###   ########.fr        #
+#    Updated: 2024/11/22 17:04:23 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = ClapTrap
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf

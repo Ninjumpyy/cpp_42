@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:54:55 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/12 17:07:18 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:49:57 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Zombie::Zombie(std::string zombie_name)
 //Destructor
 Zombie::~Zombie()
 {
-	std::cout << Zombie::name << "...........(dead).\n";
+	std::cout << name << "...........(dead).\n";
 }
 
 //Methods
