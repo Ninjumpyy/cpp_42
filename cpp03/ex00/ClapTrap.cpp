@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:45 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/21 17:21:13 by thomas           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:26:07 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-//Constructor
+//Constructors
+ClapTrap::ClapTrap() : _Name("Default name"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+{
+	std::cout << "Constructor called for " << _Name << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string& name) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
 	std::cout << "Constructor called for " << _Name << std::endl;

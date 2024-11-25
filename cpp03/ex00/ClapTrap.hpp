@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:23 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/21 16:53:11 by thomas           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:26:06 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 
 	public:
 		//Constructor
+		ClapTrap();
 		ClapTrap(const std::string& name);
 
 		//Copy Constructor
