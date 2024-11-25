@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:45 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/25 11:26:07 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:39:36 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const std::string& name) : _Name(name), _HitPoints(10), _Ener
 //Copy Constructor
 ClapTrap::ClapTrap(const ClapTrap& other) : _Name(other._Name), _HitPoints(other._HitPoints), _EnergyPoints(other._EnergyPoints), _AttackDamage(other._AttackDamage)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << _Name << " becomes " << other._Name << std::endl;
 }
 
 //Copy Assignment Operator
@@ -74,7 +74,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 			_HitPoints -= amount;
 		else
 			_HitPoints = 0;
-		std::cout << _Name << " takes " << amount << " points of damage. He now has " << _HitPoints << " hit points." << std::endl;
+		std::cout << _Name << " takes " << amount << " points of damage. It now has " << _HitPoints << " hit points." << std::endl;
 	}
 	else
 		std::cout << _Name << " has no hit points left!" << std::endl;
@@ -87,7 +87,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		_EnergyPoints--;
 		_HitPoints += amount;
-		std::cout << _Name << " repairs itself, it gets " << amount << " hit points back. He now has " << _HitPoints << " hit points." << std::endl;
+		std::cout << _Name << " repairs itself, it gets " << amount << " hit points back. It now has " << _HitPoints << " hit points." << std::endl;
 	}
 	else
 	{

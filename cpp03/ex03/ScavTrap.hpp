@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:25:53 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/22 14:46:52 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:46:29 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class ScavTrap : public ClapTrap
 {
 	public :
-		//Constructor
+		//Constructors
+		ScavTrap();
 		ScavTrap(const std::string &name);
 
 		//Copy Constructor

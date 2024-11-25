@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:23 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/22 14:38:44 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:42:20 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 
 	public:
 		//Constructor
+		ClapTrap();
 		ClapTrap(const std::string& name);
 
 		//Copy Constructor

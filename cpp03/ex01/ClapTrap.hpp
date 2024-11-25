@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:23 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/25 11:38:17 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:31:13 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap
 		unsigned int	_AttackDamage;
 
 	public:
-		//Constructors
+		//Constructor
 		ClapTrap();
 		ClapTrap(const std::string& name);
 

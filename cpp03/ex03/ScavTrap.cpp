@@ -6,19 +6,27 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:25:50 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/22 17:02:04 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:46:28 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-//Constructor
+//Constructors
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	_HitPoints = 100;
+	_EnergyPoints = 50;
+	_AttackDamage = 20;
+	std::cout << "ScavTrap constructor called for " << _Name << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
-	std::cout << "ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap constructor called for " << _Name << std::endl;
 }
 
 //Copy Constructor
