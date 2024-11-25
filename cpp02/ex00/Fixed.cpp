@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:03:06 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/19 11:30:29 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 10:53:51 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@ Fixed::Fixed()
 }
 
 // Copy Constructor
-Fixed::Fixed(const Fixed &other) : _value(other._value)
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
 }
 
 // Copy Assignment Operator
 Fixed& Fixed::operator=(const Fixed &other)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		_value = other._value;
+		_value = other.getRawBits();
 	}
-	std::cout << "Copy assignment operator called" << std::endl;
 
 	return (*this);
 }
