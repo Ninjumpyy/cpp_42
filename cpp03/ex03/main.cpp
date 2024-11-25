@@ -6,13 +6,14 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:55 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/22 17:41:27 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:30:21 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
@@ -45,7 +46,7 @@ int	main()
     claptrap2.beRepaired(10);
 
     // ScavTrap tests
-    std::cout << "** SCAVTRAP TEST BEGIN **\n\n";
+    std::cout << "\n** SCAVTRAP TEST BEGIN **\n\n";
     ScavTrap scavtrap("Scavvy");
     ScavTrap scavtrap2("Guardian");
 
@@ -53,7 +54,7 @@ int	main()
     scavtrap.guardGate();
 
     scavtrap.takeDamage(20);
-    scavtrap.beRepaired(30);
+    scavtrap.beRepaired(20);
 
     // Test copying
     ScavTrap scavtrap3(scavtrap); // Copy constructor
@@ -64,8 +65,7 @@ int	main()
     scavtrap2.attack("Assigned Enemy");
     scavtrap2.guardGate();
 
-    // Deplete ScavTrap energy and health
-    for (int i = 0; i < 48; ++i)
+    for (int i = 0; i < 50; ++i)
         scavtrap.attack("Enemy");
 
     scavtrap.takeDamage(100); // Deplete health completely
@@ -73,7 +73,7 @@ int	main()
     scavtrap.beRepaired(50); // Should fail
 
     // FragTrap tests
-    std::cout << "** FRAGTRAP TEST BEGIN **\n\n";
+    std::cout << "\n** FRAGTRAP TEST BEGIN **\n\n";
     FragTrap fragtrap("Fraggy");
 
     // Testing unique FragTrap method
@@ -109,6 +109,37 @@ int	main()
     FragTrap fragtrap3("AnotherFrag");
     fragtrap3 = fragtrap; // Copy assignment operator
     fragtrap3.highFivesGuys(); // Should replicate the state of `fragtrap`
+
+    // DiamondTrap tests
+    std::cout << "\n** DIAMOND TEST BEGIN **\n\n";
+    // Default constructor
+    DiamondTrap dt1;
+    dt1.whoAmI();
+    dt1.attack("Enemy");
+    dt1.attack("Default Enemy"); // Should use ScavTrap's attack
+    dt1.takeDamage(20); // From ClapTrap
+    dt1.beRepaired(10); // From ClapTrap
+
+    // Parameterized constructor
+    DiamondTrap dt2("Diamondy");
+    dt2.whoAmI();
+    dt2.attack("Enemy");
+    for (int i = 0; i < 50; ++i)
+    {
+        dt2.attack("Random Enemy");
+    }
+    dt2.attack("Final Enemy"); // Should fail due to no energy left
+    dt2.beRepaired(10); // Should fail due to no energy left
+
+    // Copy constructor
+    DiamondTrap dt3(dt2);
+    dt3.whoAmI();
+    dt3.guardGate();
+    dt3.highFivesGuys();
+
+    // Copy assignment operator
+    dt1 = dt2;
+    dt1.whoAmI();
 
     return 0;
 }

@@ -6,13 +6,18 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:13:08 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/22 17:27:03 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:17:46 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-//Constructor
+//Constructors
+FragTrap::FragTrap() : ClapTrap()
+{
+	std::cout << "FragTrap constructor called for " << _Name << std::endl;
+}
+
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	_HitPoints = 100;

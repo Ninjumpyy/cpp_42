@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:13:05 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/22 17:18:38 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:17:19 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class FragTrap : public ClapTrap
 {
 	public:
-		//Constructor
+		//Constructors
+		FragTrap();
 		FragTrap(const std::string& name);
 
 		//Copy Constructor
