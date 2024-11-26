@@ -6,11 +6,11 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 16:46:45 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/26 16:51:54 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/26 16:52:08 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = Brain
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
