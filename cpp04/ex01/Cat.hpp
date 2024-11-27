@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:33:40 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/26 17:35:33 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:02:57 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Cat : public Animal
 
 		//Member function
 		void makeSound(void) const;
+		Brain*	getBrain(void) const;
 };
 
 #endif

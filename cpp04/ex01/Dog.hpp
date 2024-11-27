@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:34:13 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/26 17:35:29 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:01:47 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Dog : public Animal
 
 		//Member function
 		void makeSound(void) const;
+		Brain*	getBrain(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:46:48 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/26 16:48:48 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:22:55 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 // Helper macros for colors
@@ -42,6 +43,15 @@ void test_deep_copy()
 	std::cout << "dog3 type after assignment: " << std::endl;
 	std::cout << dog3.getType() << ": ";
 	dog3.makeSound();
+
+	Cat cat1;
+
+	cat1.getBrain()->setIdea(0, "Chasing the ball");
+	Cat cat2(cat1);
+	cat2.getBrain()->setIdea(0, "Eating food");
+
+	std::cout << "Cat1 Brain Idea 0: " << cat1.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Cat2 Brain Idea 0: " << cat2.getBrain()->getIdea(0) << std::endl;
 }
 
 void test_polymorphism_with_arrays(void)
@@ -104,6 +114,23 @@ void	test_wrong_classes()
 	delete(i);
 }
 
+void	test_ex01(void)
+{
+	std::cout << "\nTest for the Brain class\n\n";
+	Animal	*array[100];
+
+	for (int i = 0; i < 100; i++)
+	{
+		if (i < 50)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+	}
+
+	for (int i = 0; i < 100; i++)
+		delete array[i];
+}
+
 int main()
 {
 	std::cout << "Test from the subject\n\n";
@@ -139,6 +166,10 @@ int main()
 
 	std::cout << CYAN;
 	test_wrong_classes();
+	std::cout << RESET;
+
+	std::cout << GREEN;
+	test_ex01();
 	std::cout << RESET;
 
     return (0);

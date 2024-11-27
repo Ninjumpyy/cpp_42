@@ -6,7 +6,7 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 16:46:45 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/26 16:52:08 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/27 11:39:32 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Brain
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:52:44 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/26 17:25:53 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/27 10:32:47 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ class Brain
 
 		//Destructor
 		~Brain();
+
+		//Member functions
+		std::string getIdea(const unsigned int index) const;
+		void		setIdea(const unsigned int index, const std::string idea);
 };
 
 #endif
