@@ -6,15 +6,16 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:04:13 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 17:04:58 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:09:15 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "Cure.hpp"
+#include <iostream>
 
 //Constructor
-Cure::Cure(std::string const& type) : AMateria(type) {}
+Cure::Cure() : AMateria("cure") {}
 
 //Copy Constructor
 Cure::Cure(const Cure& other) : AMateria(other) {}
@@ -35,7 +36,7 @@ Cure::~Cure() {}
 //Member functions to override
 AMateria* Cure::clone() const
 {
-	AMateria* clone = new Cure("cure");
+	AMateria* clone = new Cure();
 	return (clone);
 }
 

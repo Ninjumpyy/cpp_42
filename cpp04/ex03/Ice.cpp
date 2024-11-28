@@ -6,15 +6,16 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:04:22 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 17:05:16 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:09:28 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "Ice.hpp"
+#include <iostream>
 
 //Constructor
-Ice::Ice(std::string const& type) : AMateria(type) {}
+Ice::Ice() : AMateria("ice") {}
 
 //Copy Constructor
 Ice::Ice(const Ice& other) : AMateria(other) {}
@@ -35,7 +36,7 @@ Ice::~Ice() {}
 //Member functions to override
 AMateria* Ice::clone() const
 {
-	AMateria* clone = new Ice("ice");
+	AMateria* clone = new Ice();
 	return (clone);
 }
 

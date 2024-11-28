@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:47 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 17:40:11 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:29:03 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,44 @@ Character::Character(const Character& other) : _name(other._name)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		_inventory[i] = other._inventory[i];
+		if (other._inventory[i])
+			_inventory[i] = other._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 	}
 }
 
 //Copy Assignment Operator
 Character& Character::operator=(const Character& other)
 {
-	(void)other;
+	if (this != &other)
+	{
+		// Cleanup existing inventory
+		for (int i = 0; i < 4; i++)
+		{
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
+
+		// Deep copy inventory
+		for (int i = 0; i < 4; i++)
+		{
+			if (other._inventory[i])
+				_inventory[i] = other._inventory[i]->clone();
+		}
+	}
 	return (*this);
 }
 
 //Destructor
-Character::~Character() {}
+Character::~Character() 
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
+}
 
 //Member functions to override
 std::string const& Character::getName() const
@@ -49,16 +74,19 @@ std::string const& Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	int i = 0;
-	while (i < 4 && _inventory[i] == NULL)
-		i++;
-	if (i != 4)
-		_inventory[i] = m;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] == NULL)
+		{
+			_inventory[i] = m;
+			return ;
+		}
+	}
 }
 
 void	Character::unequip(int idx)
 {
-	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL)
+	if (idx >= 0 && idx < 4 && _inventory[idx])
 		_inventory[idx] = NULL;
 }
 

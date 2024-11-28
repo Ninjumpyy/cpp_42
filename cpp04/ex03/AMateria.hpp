@@ -6,21 +6,20 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:59:26 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 16:08:50 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:05:27 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-# include "ICharacter.hpp"
 # include <string>
-# include <iostream>
+# include "ICharacter.hpp"
 
 class AMateria
 {
 	protected:
-		std::string const& _type;
+		std::string _type;
 		
 	public:
 		//Constructor
@@ -33,7 +32,7 @@ class AMateria
 		AMateria& operator=(const AMateria& other);
 
 		//Destructor
-		~AMateria();
+		virtual ~AMateria();
 
 		//Member functions
 		std::string const& getType() const; //Returns the materia type

@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:04 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 17:24:27 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:05:47 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
-# include "AMateria.hpp"
+
+class AMateria;
 
 class Character: public ICharacter
 {
 	private:
-		std::string const& _name;
+		std::string const _name;
 		AMateria* 	_inventory[4];
 
 	public:

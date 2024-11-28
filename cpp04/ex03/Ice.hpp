@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:03:38 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 16:42:26 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:33:19 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Ice: public AMateria
 {
 	public:
 		//Constructor
-		Ice(std::string const& type);
+		Ice();
 
 		//Copy Constructor
 		Ice(const Ice& other);
@@ -30,7 +30,7 @@ class Ice: public AMateria
 		//Destructor
 		~Ice();
 
-		//Member functions
+		//Member functions to override
 		AMateria* clone() const;
 		void use(ICharacter& target);
 };

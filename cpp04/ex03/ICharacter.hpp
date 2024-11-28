@@ -6,15 +6,16 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:16:20 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 16:36:56 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:04:51 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include "AMateria.hpp"
 # include <string>
+
+class AMateria;
 
 class ICharacter
 {

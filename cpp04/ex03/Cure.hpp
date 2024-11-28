@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:03:56 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 16:59:59 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:37:48 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cure: public AMateria
 {
 	public:
 		//Constructor
-		Cure(std::string const& type);
+		Cure();
 
 		//Copy Constructor
 		Cure(const Cure& other);
