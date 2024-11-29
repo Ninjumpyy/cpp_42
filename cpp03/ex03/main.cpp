@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:55 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/29 12:34:49 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:34:40 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 int	main()
 {
-/*
-
    // ClapTrap tests
     std::cout << "*** ClapTrap Tests ***\n\n";
     
@@ -129,15 +127,12 @@ int	main()
     fragtrap4.highFivesGuys(); // Should replicate the state of `fragtrap`
     fragtrap3.attack("Enemy 4");
     fragtrap3.beRepaired(10);
-*/
+
     // DiamondTrap tests
     std::cout << "\n** DIAMOND TEST BEGIN **\n\n";
     // Default constructor
     DiamondTrap dt1;
     dt1.whoAmI();
-    dt1.displayHP();
-    dt1.displayEnergy();
-    dt1.displayAttack();
     dt1.attack("Enemy");
     dt1.attack("Default Enemy"); // Should use ScavTrap's attack
     dt1.takeDamage(20); // From ClapTrap
@@ -146,9 +141,6 @@ int	main()
     // Parameterized constructor
     DiamondTrap dt2("Diamondy");
     dt2.whoAmI();
-    dt2.displayHP();
-    dt2.displayEnergy();
-    dt2.displayAttack();
     dt2.attack("Enemy");
     for (int i = 0; i < 50; ++i)
     {

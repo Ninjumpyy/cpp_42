@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:43:26 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/29 12:31:54 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:33:10 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,4 @@ void	DiamondTrap::attack(const std::string& target)
 void	DiamondTrap::whoAmI()
 {
 	std::cout << "I am " << DiamondTrap::_Name << ". My ClapTrap name is " << ClapTrap::_Name << std::endl;
-}
-
-void DiamondTrap::displayHP()
-{
-	std::cout << DiamondTrap::_Name << " has " << _HitPoints << " hp" << std::endl;
-}
-
-void DiamondTrap::displayEnergy()
-{
-	std::cout << DiamondTrap::_Name << " has " << _EnergyPoints << " energy points" << std::endl;
-}
-
-void DiamondTrap::displayAttack()
-{
-	std::cout << DiamondTrap::_Name << " has " << _AttackDamage << " attack dammage" << std::endl;
 }
