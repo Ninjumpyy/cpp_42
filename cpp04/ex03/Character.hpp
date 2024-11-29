@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:04 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/28 15:05:47 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 16:37:42 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Character: public ICharacter
 	private:
 		std::string const _name;
 		AMateria* 	_inventory[4];
+		AMateria*	_unequiped[100];
 
 	public:
 		//Constructor

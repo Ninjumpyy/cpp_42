@@ -6,13 +6,13 @@
 #    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 14:57:50 by tle-moel          #+#    #+#              #
-#    Updated: 2024/11/28 14:56:22 by tle-moel         ###   ########.fr        #
+#    Updated: 2024/11/29 13:58:09 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Interface
 CPP = c++
-CPPFLAG = -Wall -Wextra -Werror -std=c++98
+CPPFLAG = -Wall -Wextra -Werror -std=c++98 -g
 RM = rm -rf
 SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJDIR = obj

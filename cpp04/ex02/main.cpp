@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:46:48 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/27 14:55:28 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 16:10:51 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 #define MAGENTA "\033[35m"  // Magenta
 #define CYAN    "\033[36m"  // Cyan
 
-void test_deep_copy()
+void test_copy()
 {
-	std::cout << "\nDeep Copy\n\n";
+	std::cout << "\nCopy\n\n";
 	Dog dog1;
 	Dog dog2 = dog1; // Copy constructor
 	Dog dog3;
@@ -150,7 +150,7 @@ int main()
 	delete(i);
 
 	std::cout << GREEN;
-	test_deep_copy();
+	test_copy();
 	std::cout << RESET;
 	
 	std::cout << YELLOW;

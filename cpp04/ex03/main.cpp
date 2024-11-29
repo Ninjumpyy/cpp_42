@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:58:10 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/28 16:39:11 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:27:13 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void testCharacter()
     character.use(0, target); // Should do nothing
 
     // Cleanup unequipped materia
-    delete ice;
+    //delete ice;
     //delete cure;
 
     std::cout << "Character Tests Complete.\n\n";
@@ -148,6 +148,115 @@ void testEdgeCases()
     std::cout << "Edge Case Tests Complete.\n\n";
 }
 
+void test_eric()
+{
+    std::cout << "Main tests of subject **************************" << std::endl;
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+    }    
+    
+    std::cout << "Test does not exists Material ******************* " << std::endl;
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        delete tmp;
+        tmp = src->createMateria("fire");
+        if (tmp != NULL)
+            me->equip(tmp);
+        else
+            std::cout << "Returned NULL because it does not exists." << std::endl;
+        delete me;
+        delete src;
+    }    
+
+    std::cout << "Test unequip character ******************* " << std::endl;
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        me->equip(tmp);
+        me->equip(tmp);
+        me->equip(tmp);
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+    }
+   
+   
+    std::cout << "Test use bad index ******************* " << std::endl;
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(67, *bob);
+        me->use(-1, *bob);
+        me->use(3, *bob);
+        delete bob;
+        delete me;
+        delete src;
+    }
+    
+    std::cout << "Test unequip ******************* " << std::endl;
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        me->unequip(1);
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        std::cout <<"\tWe are going to unequip 1." << std::endl;
+        me->unequip(1);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+    }
+}
 
 int	main()
 {
@@ -190,6 +299,8 @@ int	main()
 	std::cout << CYAN;
 	testEdgeCases();
 	std::cout << RESET;
+
+    test_eric();
 	
 	return (0);
 }
