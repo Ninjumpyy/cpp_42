@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:13:08 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/25 15:17:46 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:38:50 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 //Constructors
 FragTrap::FragTrap() : ClapTrap()
 {
+	_HitPoints = 100;
+	_EnergyPoints = 100;
+	_AttackDamage = 30;
 	std::cout << "FragTrap constructor called for " << _Name << std::endl;
 }
 
@@ -29,9 +32,6 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 //Copy Constructor
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	_HitPoints = other._HitPoints;
-	_EnergyPoints = other._EnergyPoints;
-	_AttackDamage = other._AttackDamage;
 	std::cout << "FragTrap copy constructor called." << std::endl;
 }
 

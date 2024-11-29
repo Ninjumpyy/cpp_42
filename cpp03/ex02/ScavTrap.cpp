@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:25:50 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/25 14:42:39 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:32:54 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 //Copy Constructor
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	_HitPoints = other._HitPoints;
-	_EnergyPoints = other._EnergyPoints;
-	_AttackDamage = other._AttackDamage;
 	std::cout << "ScavTrap copy constructor called." << std::endl;
 }
 
@@ -52,7 +49,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 //Destructor
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called." << std::endl;
 }
 
 //Member functions
