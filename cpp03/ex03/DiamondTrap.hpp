@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:43:30 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/25 16:37:09 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:59:32 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		//Member Functions
 		void	attack(const std::string& target);
 		void	whoAmI();
+		void	displayHP();
+		void	displayEnergy();
+		void	displayAttack();
 	
 };
 

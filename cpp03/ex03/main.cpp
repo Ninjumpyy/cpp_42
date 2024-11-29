@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:55 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/25 16:30:21 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:34:49 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,44 @@
 
 int	main()
 {
-    std::cout << "** CLAPTRAP TEST BEGIN **\n\n";
-    ClapTrap claptrap("Clappy");
-	ClapTrap claptrap2("Billy");
+/*
 
-    claptrap.attack("Enemy 1");
-    claptrap.attack("Enemy 2");
+   // ClapTrap tests
+    std::cout << "*** ClapTrap Tests ***\n\n";
+    
+    ClapTrap noname;
+    ClapTrap clappy("Clappy");
+    ClapTrap claptrap(clappy);
+    claptrap = noname;
 
-    claptrap.takeDamage(3);
-	claptrap.beRepaired(5); // Repair when energy points are available
+    noname.attack("Enemy 1");
+    clappy.attack("Enemy 2");
+    claptrap.attack("Ennemy 3");
 
-    claptrap.takeDamage(15); // Test for more damage than current hit points
-    claptrap.beRepaired(20); // Repair more than hit points would need
+    clappy.takeDamage(3);
+	clappy.beRepaired(5); // Repair when energy points are available
+
+    clappy.takeDamage(11); // Test for more damage than current hit points
+    clappy.beRepaired(20); 
 
     // Deplete energy points to test behavior
-    for (int i = 0; i < 10; ++i)
-        claptrap2.attack("Dummy");
+    for (int i = 0; i < 7; ++i)
+        clappy.attack("Dummy");
 
     // Attempt to attack and repair when out of energy points
-    claptrap2.attack("Enemy 3");
-    claptrap2.beRepaired(5);
+    clappy.attack("Enemy 3");
+    clappy.beRepaired(5);
 
     // Deplete hit points to test behavior
-    claptrap2.takeDamage(100); // Ensure hit points are 0
+    clappy.takeDamage(100); // Ensure hit points are 0
 
     // Attempt to attack and repair when out of hit points
-    claptrap2.attack("Enemy 4");
-    claptrap2.beRepaired(10);
+    clappy.attack("Enemy 4");
+    clappy.beRepaired(10);
 
     // ScavTrap tests
-    std::cout << "\n** SCAVTRAP TEST BEGIN **\n\n";
+    std::cout << "\n*** ScavTrap Tests ***\n\n";
+    
     ScavTrap scavtrap("Scavvy");
     ScavTrap scavtrap2("Guardian");
 
@@ -59,21 +67,28 @@ int	main()
     // Test copying
     ScavTrap scavtrap3(scavtrap); // Copy constructor
     scavtrap3.attack("Copied Enemy");
+    scavtrap3.takeDamage(10);
+    scavtrap3.beRepaired(10);
     scavtrap3.guardGate();
 
     scavtrap2 = scavtrap; // Copy assignment operator
     scavtrap2.attack("Assigned Enemy");
+    scavtrap2.takeDamage(10);
+    scavtrap2.beRepaired(10);
     scavtrap2.guardGate();
 
-    for (int i = 0; i < 50; ++i)
+    // Deplete ScavTrap energy and health
+    for (int i = 0; i < 48; ++i)
         scavtrap.attack("Enemy");
 
+    scavtrap.attack("Last Enemy"); // Should fail
+    scavtrap.beRepaired(50); // Should fail
     scavtrap.takeDamage(100); // Deplete health completely
     scavtrap.attack("Last Enemy"); // Should fail
     scavtrap.beRepaired(50); // Should fail
 
     // FragTrap tests
-    std::cout << "\n** FRAGTRAP TEST BEGIN **\n\n";
+    std::cout << "*** FragTrap Tests ***\n\n";
     FragTrap fragtrap("Fraggy");
 
     // Testing unique FragTrap method
@@ -103,18 +118,26 @@ int	main()
     fragtrap.attack("Enemy 3"); // Should fail due to no hit points
 
     // Test copying FragTrap
-    FragTrap fragtrap2(fragtrap); // Copy constructor
-    fragtrap2.highFivesGuys();    // Should replicate the state of `fragtrap`
+    FragTrap fragtrap2("Fragouuuu");
+    FragTrap fragtrap3(fragtrap2); // Copy constructor
+    fragtrap3.highFivesGuys();    // Should replicate the state of `fragtrap`
+    fragtrap3.attack("Enemy 4");
+    fragtrap3.beRepaired(10);
 
-    FragTrap fragtrap3("AnotherFrag");
-    fragtrap3 = fragtrap; // Copy assignment operator
-    fragtrap3.highFivesGuys(); // Should replicate the state of `fragtrap`
-
+    FragTrap fragtrap4("AnotherFrag");
+    fragtrap4 = fragtrap2; // Copy assignment operator
+    fragtrap4.highFivesGuys(); // Should replicate the state of `fragtrap`
+    fragtrap3.attack("Enemy 4");
+    fragtrap3.beRepaired(10);
+*/
     // DiamondTrap tests
     std::cout << "\n** DIAMOND TEST BEGIN **\n\n";
     // Default constructor
     DiamondTrap dt1;
     dt1.whoAmI();
+    dt1.displayHP();
+    dt1.displayEnergy();
+    dt1.displayAttack();
     dt1.attack("Enemy");
     dt1.attack("Default Enemy"); // Should use ScavTrap's attack
     dt1.takeDamage(20); // From ClapTrap
@@ -123,6 +146,9 @@ int	main()
     // Parameterized constructor
     DiamondTrap dt2("Diamondy");
     dt2.whoAmI();
+    dt2.displayHP();
+    dt2.displayEnergy();
+    dt2.displayAttack();
     dt2.attack("Enemy");
     for (int i = 0; i < 50; ++i)
     {

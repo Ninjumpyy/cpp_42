@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:43:26 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/25 16:39:02 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:31:54 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,19 @@
 //Constructors
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), _Name("Default")
 {
-	_HitPoints = FragTrap::_HitPoints;
-	_EnergyPoints = ScavTrap::_EnergyPoints;
-	_AttackDamage = FragTrap::_AttackDamage;
+	_EnergyPoints = 50;
 	std::cout << "DiamondTrap constructor called for " << _Name << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _Name(name)
 {
-	_HitPoints = FragTrap::_HitPoints;
-	_EnergyPoints = ScavTrap::_EnergyPoints;
-	_AttackDamage = FragTrap::_AttackDamage;
+	_EnergyPoints = 50;
 	std::cout << "DiamondTrap constructor called for " << _Name << std::endl;
 }
 
 //Copy Constructor
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), _Name(other._Name)
 {
-	_HitPoints = other._HitPoints;
-    _EnergyPoints = other._EnergyPoints;
-    _AttackDamage = other._AttackDamage;
 	std::cout << "DiamondTrap copy constructor called." << std::endl;
 }
 
@@ -65,4 +58,19 @@ void	DiamondTrap::attack(const std::string& target)
 void	DiamondTrap::whoAmI()
 {
 	std::cout << "I am " << DiamondTrap::_Name << ". My ClapTrap name is " << ClapTrap::_Name << std::endl;
+}
+
+void DiamondTrap::displayHP()
+{
+	std::cout << DiamondTrap::_Name << " has " << _HitPoints << " hp" << std::endl;
+}
+
+void DiamondTrap::displayEnergy()
+{
+	std::cout << DiamondTrap::_Name << " has " << _EnergyPoints << " energy points" << std::endl;
+}
+
+void DiamondTrap::displayAttack()
+{
+	std::cout << DiamondTrap::_Name << " has " << _AttackDamage << " attack dammage" << std::endl;
 }
