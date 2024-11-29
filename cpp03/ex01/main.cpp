@@ -6,7 +6,7 @@
 /*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:14:55 by thomas            #+#    #+#             */
-/*   Updated: 2024/11/25 14:40:57 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:05:06 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@ int	main()
     
     ClapTrap noname;
     ClapTrap clappy("Clappy");
-    ClapTrap claptrap("Billy");
-    ClapTrap billy(clappy);
-    billy = noname;
+    ClapTrap claptrap(clappy);
+    claptrap = noname;
 
     noname.attack("Enemy 1");
     clappy.attack("Enemy 2");
-    billy.attack("Ennemy 3");
+    claptrap.attack("Ennemy 3");
 
     clappy.takeDamage(3);
 	clappy.beRepaired(5); // Repair when energy points are available
 
-    clappy.takeDamage(15); // Test for more damage than current hit points
+    clappy.takeDamage(11); // Test for more damage than current hit points
     clappy.beRepaired(20); 
 
     // Deplete energy points to test behavior
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 7; ++i)
         clappy.attack("Dummy");
 
     // Attempt to attack and repair when out of energy points
@@ -64,22 +63,25 @@ int	main()
     // Test copying
     ScavTrap scavtrap3(scavtrap); // Copy constructor
     scavtrap3.attack("Copied Enemy");
+    scavtrap3.takeDamage(10);
+    scavtrap3.beRepaired(10);
     scavtrap3.guardGate();
 
     scavtrap2 = scavtrap; // Copy assignment operator
     scavtrap2.attack("Assigned Enemy");
+    scavtrap2.takeDamage(10);
+    scavtrap2.beRepaired(10);
     scavtrap2.guardGate();
 
     // Deplete ScavTrap energy and health
     for (int i = 0; i < 48; ++i)
         scavtrap.attack("Enemy");
 
+    scavtrap.attack("Last Enemy"); // Should fail
+    scavtrap.beRepaired(50); // Should fail
     scavtrap.takeDamage(100); // Deplete health completely
     scavtrap.attack("Last Enemy"); // Should fail
     scavtrap.beRepaired(50); // Should fail
-
-    ScavTrap test;
-    test.attack("Someone");
-
+    
     return 0;
 }
