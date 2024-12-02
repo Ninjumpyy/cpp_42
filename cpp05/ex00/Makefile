@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/27 14:57:50 by tle-moel          #+#    #+#              #
-#    Updated: 2024/12/02 12:43:02 by thomas           ###   ########.fr        #
+#    Created: 2024/12/02 12:35:40 by thomas            #+#    #+#              #
+#    Updated: 2024/12/02 12:43:05 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Interface
+NAME = Bureaucrat
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRCS = main.cpp Bureaucrat.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
@@ -24,7 +24,7 @@ RED         = \033[0;31m
 NC          = \033[0m
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
+	$(CPP) $(CPPFLAG) $(OBJS) -c $(NAME)
 	@echo -e '${GREEN}Build complete!${NC}'
 
 $(OBJDIR)/%.o: %.cpp
@@ -45,3 +45,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
