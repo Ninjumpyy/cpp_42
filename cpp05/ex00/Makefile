@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
+#    By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:35:40 by thomas            #+#    #+#              #
-#    Updated: 2024/12/02 12:43:05 by thomas           ###   ########.fr        #
+#    Updated: 2024/12/03 17:09:51 by tle-moel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RED         = \033[0;31m
 NC          = \033[0m
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAG) $(OBJS) -c $(NAME)
+	$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 	@echo -e '${GREEN}Build complete!${NC}'
 
 $(OBJDIR)/%.o: %.cpp

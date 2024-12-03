@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:44:37 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/02 12:55:03 by thomas           ###   ########.fr       */
+/*   Updated: 2024/12/03 17:07:40 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
+# include <exception>
 
 class Bureaucrat
 {
 	private:
 		std::string const _name;
 		int	_grade;
+		
 	public:
 		//Constructor
 		Bureaucrat();
-		Bureaucrat(std::string const &name, int& grade);
+		Bureaucrat(std::string const &name, int grade);
 
 		//Copy Constructor
 		Bureaucrat(const Bureaucrat& other);
@@ -34,13 +36,25 @@ class Bureaucrat
 		//Destructor
 		~Bureaucrat();
 
-		//Getters
-		std::string getName() const;
+		//Member functions
+		std::string const& getName() const;
 		int getGrade() const;
-		void increment();
-		void decrement();
-		
+		void incrementGrade();
+		void decrementGrade();
 
+		//Exceptions
+		class GradeTooHighException : public std::exception
+		{
+			const char *what() const throw();	
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			const char *what() const throw();
+		};
 };
+
+//Overload of operator
+std::ostream& operator<<(std::ostream &os, const Bureaucrat& other);
 
 #endif
