@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:15:58 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/12/03 18:10:25 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:18:20 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Form
 	private:
 		const std::string _name;
 		bool	_signed;
-		int	_grade_to_sign;
-		int	_grade_to_execute;
+		const int	_grade_to_sign;
+		const int	_grade_to_execute;
 
 	public:
 		//Constructor
@@ -35,7 +35,7 @@ class Form
 		//Copy Constructor
 		Form(const Form& other);
 
-		//Copy Assignment Operator
+		//Copy Assignment Operator deleted here because const attributes
 		Form& operator=(const Form& other);
 
 		//Destructor

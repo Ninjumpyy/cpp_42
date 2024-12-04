@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:34:58 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/12/03 16:56:24 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:19:24 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 //Constructors
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name)
 {
-	if (_grade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
-	if (_grade > 150)
+	if (grade > 150)
 		throw GradeTooLowException();
+	_grade = grade;
 }
 
 //Copy Constructor
@@ -79,6 +80,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 //Overload
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& other)
 {
-	os << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
+	os << other.getName() << ", bureaucrat grade " << other.getGrade();
 	return (os);
 }

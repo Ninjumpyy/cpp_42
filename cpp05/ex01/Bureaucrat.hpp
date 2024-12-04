@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:44:37 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/03 18:10:42 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:17:33 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Form;
 
 class Bureaucrat
 {
-	protected:
+	private:
 		std::string const _name;
 		int	_grade;
 		

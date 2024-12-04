@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:27:23 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/12/03 18:08:46 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:23:49 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,10 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_execute): _name(nam
 //Copy Constructor
 Form::Form(const Form& other): _name(other._name), _signed(other._signed), _grade_to_sign(other._grade_to_sign), _grade_to_execute(other._grade_to_execute) {}
 
-//Copy Assignment Operator
+//Copy Assignment Operator deleted here because const attributes
 Form& Form::operator=(const Form& other)
 {
-	if (this != &other)
-	{
-		_signed = other._signed;
-		_grade_to_sign = other._grade_to_sign;
-		_grade_to_execute = other._grade_to_execute;
-	}
+	(void)other;
 	return (*this);
 }
 
@@ -73,16 +68,22 @@ void	Form::beSigned(const Bureaucrat& b)
 //Exceptions
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high!";
+	return "Grade is too high to be signed!";
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low!";
+	return "Grade is too low to be signed!";
 }
 
+//Overload for insertion operator
 std::ostream& operator<<(std::ostream& os, const Form& other)
 {
-	os << "Name: " << other.getName() << ", is signed: " << other.getSignedStatus() << ", grade to sign : " << other.getGradeToSign() << ", grade to execute : " << other.getGradeToExecute() << std::endl;
+	os << "Name: " << other.getName() << ", is signed: ";
+	if (other.getSignedStatus())
+		os << "Yes";
+	else
+		os << "No";
+	os << ", grade to sign : " << other.getGradeToSign() << ", grade to execute : " << other.getGradeToExecute();
 	return (os);
 }
