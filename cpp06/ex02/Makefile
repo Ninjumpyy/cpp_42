@@ -6,15 +6,15 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/10 17:08:35 by thomas            #+#    #+#              #
-#    Updated: 2024/12/10 17:08:56 by thomas           ###   ########.fr        #
+#    Updated: 2024/12/11 16:02:56 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serialize
+NAME = dynamic
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp utils.cpp
 OBJDIR = obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
