@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:05:59 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/16 17:02:40 by tle-moel         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:30:51 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 # include <exception>
 # include <vector>
+# include <algorithm>
+# include <climits>
 
 class Span
 {
 	private:
-		std::vector<int> V;
+		std::vector<int> _container;
 		
 	public:
 		//Constructors
 		Span();
-		Span(unsigned int n);
+		Span(unsigned int N);
 		Span(const Span& other);
 
 		//Copy Assignment Operator
@@ -37,7 +39,7 @@ class Span
 		void	addNumber(int nb);
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
-		void	addRandomNumbers(unsigned int size);
+		void	addRange(std::vector<int>::iterator start, std::vector<int>::iterator end);
 
 		//Exceptions
 		class TooManyElements: public std::exception
