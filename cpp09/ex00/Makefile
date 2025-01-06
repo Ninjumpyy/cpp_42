@@ -6,11 +6,11 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 16:06:55 by thomas            #+#    #+#              #
-#    Updated: 2024/12/18 18:09:05 by thomas           ###   ########.fr        #
+#    Updated: 2025/01/06 12:25:08 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bitcoin
+NAME = btc
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf

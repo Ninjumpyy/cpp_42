@@ -6,9 +6,16 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:10 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/18 18:09:22 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/06 12:26:13 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (1);
+	
+}
 
