@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:01:21 by tle-moel          #+#    #+#             */
-/*   Updated: 2024/11/22 16:06:51 by tle-moel         ###   ########.fr       */
+/*   Updated: 2025/01/06 10:09:35 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 	std::cout << "The memory address of the string variable : "
 			  << &str << "\n";
 	std::cout << "The memory address held by stringPTR : "
-			  << &stringPTR << "\n";
+			  << stringPTR << "\n";
 	std::cout << "The memory address held by stringREF : "
 			  << &stringREF << "\n";
 	std::cout << std::endl;
