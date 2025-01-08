@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:25 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/07 18:23:26 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:12:43 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include <map>
 # include <string>
+# include <string.h>
 # include <iostream>
 # include <fstream>
+# include <limits>
+# include <stdlib.h>
 
 class BitcoinExchange
 {
@@ -37,7 +40,10 @@ class BitcoinExchange
 	private:
 		std::map<std::string, double> map_data;
 
-		int	read_data_base(void);
+		bool	read_data_base(void);
+		bool handle_float(double value);
+		bool handle_delim(char delim, std::string line);
+		bool handle_date_format(std::string date);
 };
 
 #endif
