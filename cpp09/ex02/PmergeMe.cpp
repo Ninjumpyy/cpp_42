@@ -6,8 +6,11 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:11:40 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/18 18:11:46 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:44:53 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+//Constructors
+PMergeMe::PMergeMe() {}
