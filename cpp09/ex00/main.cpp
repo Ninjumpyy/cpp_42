@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:10 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/07 17:51:56 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 10:48:47 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ int	main(int argc, char **argv)
 	return object.print_exchange_rate_from_input(argv[1]);
 	
 }
-

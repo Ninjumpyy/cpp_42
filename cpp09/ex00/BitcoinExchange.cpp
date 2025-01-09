@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:51 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/08 17:12:42 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 11:46:34 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,99 @@ BitcoinExchange::~BitcoinExchange() {}
 //Method
 int	BitcoinExchange::print_exchange_rate_from_input(std::string input_file)
 {
-	if (!BitcoinExchange::read_data_base()) {
-		std::cout << "Error: could not open file.\n";
+	if (!BitcoinExchange::read_data_base())
 		return 0; //value return by main later to indicate failure...
+	
+	std::ifstream inputfile(input_file.c_str());
+	if (!inputfile.is_open()) {
+		std::cout << "Error: could not open input file.\n";
+		return 0;
 	}
+
+	std::string line;
+	if (std::getline(inputfile, line) && line != "date | value")
+		BitcoinExchange::process_line(line);
+	while (std::getline(inputfile, line))
+	{
+		BitcoinExchange::process_line(line);
+	}
+	inputfile.close();
+	return 1; //value return by main later to indicate success...
+}
+
+void	BitcoinExchange::process_line(std::string line)
+{
+	if (!BitcoinExchange::valid_delim(" | ", line)) {
+			std::cout << "Error: bad input => " << line << std::endl;
+			return;
+		}
+		std::size_t found = line.find(" | ");
+		std::string date = line.substr(0, found);
+		if (!BitcoinExchange::valid_date_format(date)) {
+			std::cout << "Error: date => " << date << std::endl;
+			return;
+		}
+		std::string value_str = line.substr(found + 3);
+		double value = atof(value_str.c_str());
+		if (value < 0) {
+			std::cout << "Error: not a positive number.\n";
+			return;
+		}
+		else if (value > 1000) {
+			std::cout << "Error: too large number.\n";
+			return;
+		}
+		BitcoinExchange::print_result(date, value);
 }
 
 bool	BitcoinExchange::read_data_base()
 {
 	std::ifstream inputfile("data.csv");
-	if (!inputfile.is_open())
+	if (!inputfile.is_open()) {
+		std::cout << "Error: could not open data base.\n";
 		return false;
+	}
 	
 	std::string line;
 	std::getline(inputfile, line);
 	while (std::getline(inputfile, line))
 	{
+		if (!BitcoinExchange::valid_delim(",", line)) {
+			std::cout << "Error: format data base.\n";
+			return false;
+		}
 		std::size_t found = line.find(',');
 		std::string date = line.substr(0, found);
+		if (!BitcoinExchange::valid_date_format(date)) {
+			std::cout << "Error: format data base.\n";
+			return false;
+		}
 		std::string rate_str = line.substr(found + 1);
-		double rate = stod(rate_str);
-		map_data.insert({date, rate});
+		double rate = atof(rate_str.c_str());
+		if (!BitcoinExchange::valid_exchange_rate(rate)) {
+			std::cout << "Error: format data base.\n";
+			return false;
+		}
+		map_data.insert(std::pair<std::string, double>(date, rate));
 	}
 	return true;
 }
 
-bool BitcoinExchange::handle_float(double value)
+bool BitcoinExchange::valid_exchange_rate(double value)
 {
-	if (value < 0 || value >  std::numeric_limits<float>::max())
+	if (value < 0 || value > std::numeric_limits<float>::max())
 		return false;
 	return true;
 }
 
-bool BitcoinExchange::handle_delim(char delim, std::string line)
+bool BitcoinExchange::valid_value(double value)
+{
+	if (value < 0 || value > 1000)
+		return false;
+	return true;
+}
+
+bool BitcoinExchange::valid_delim(std::string delim, std::string line)
 {
 	std::size_t found = line.find(delim);
 	if (found != std::string::npos)
@@ -76,7 +136,7 @@ bool BitcoinExchange::handle_delim(char delim, std::string line)
 	return false;
 }
 
-bool BitcoinExchange::handle_date_format(std::string date)
+bool BitcoinExchange::valid_date_format(std::string date)
 {
 	std::size_t first_hyphen = date.find('-');
 	std::size_t second_hyphen = date.find_last_of('-');
@@ -92,17 +152,36 @@ bool BitcoinExchange::handle_date_format(std::string date)
 		day.find_first_not_of("0123456789") != std::string::npos)
 		return false;
 
+	std::tm time_struct = {};
+	time_struct.tm_year = atoi(year.c_str()) - 1900;
+	time_struct.tm_mon = atoi(month.c_str()) - 1;
+	time_struct.tm_mday = atoi(day.c_str());
+	std::tm normalized_date = time_struct;
+	mktime(&normalized_date);
+	if (time_struct.tm_year != normalized_date.tm_year ||
+		time_struct.tm_mon != normalized_date.tm_mon ||
+		time_struct.tm_mday != normalized_date.tm_mday)
+		return false;
 	
+	return true;
+}
 
+void BitcoinExchange::print_result(std::string date, double value)
+{
+	std::map<std::string, double>::iterator it;
 
-
-
-	std::string year = date.substr(0, first_hyphen);
-	if (year.find_first_not_of("0123456789") != std::string::npos)
-		return false;
-	std::string month = date.substr(first_hyphen + 1, second_hyphen - first_hyphen - 1);
-	if (month.length() != 2 && atoi(month.c_str()) > 12)
-		return false;
-	std::string day = date.substr(second_hyphen + 1);
-	if (day.length() != 2 || atoi(day.c_str()) > 31)
+	it = map_data.lower_bound(date);
+	if (it == map_data.begin() && it->first != date)
+		std::cout << "Error: no valid date in DB for " << date << std::endl;
+	else if (it == map_data.end()) {
+		it--;
+		std::cout << date << " => " << value << " = " << (it->second * value) << std::endl;
+	}
+	else if (it->first > date) {
+		it--;
+		std::cout << date << " => " << value << " = " << (it->second * value) << std::endl;
+	}
+	else
+		std::cout << date << " => " << value << " = " << (it->second * value) << std::endl;
+	return ;
 }
