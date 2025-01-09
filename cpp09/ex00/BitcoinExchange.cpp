@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:51 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/09 11:50:42 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:06:30 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ BitcoinExchange::~BitcoinExchange() {}
 int	BitcoinExchange::print_exchange_rate_from_input(std::string input_file)
 {
 	if (!BitcoinExchange::read_data_base())
-		return 0; //Indicate failure...
+		return 1; //Indicate failure...
 	
 	std::ifstream inputfile(input_file.c_str());
 	if (!inputfile.is_open()) {
 		std::cout << "Error: could not open input file.\n";
-		return 0;
+		return 1;
 	}
 
 	std::string line;
@@ -49,7 +49,7 @@ int	BitcoinExchange::print_exchange_rate_from_input(std::string input_file)
 		BitcoinExchange::process_line(line);
 	}
 	inputfile.close();
-	return 1; //Indicate success...
+	return 0; //Indicate success...
 }
 
 void	BitcoinExchange::process_line(std::string line)
