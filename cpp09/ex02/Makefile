@@ -6,11 +6,11 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 16:06:55 by thomas            #+#    #+#              #
-#    Updated: 2024/12/18 18:11:36 by thomas           ###   ########.fr        #
+#    Updated: 2025/01/09 15:25:34 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Pmerge
+NAME = PmergeMe
 CPP = c++
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
