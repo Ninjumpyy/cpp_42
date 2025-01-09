@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:10:31 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/09 15:18:53 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:39:53 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ bool RPN::read_input(std::string input)
 		if (std::isdigit(input[i])) {
 			stack.push(static_cast<double>(input[i] - 48));
 			if (i + 1 < input.size() && input[i + 1] != ' ') {
-				std::cout << "Error\n";
+				std::cerr << "Error\n";
 				return false;
 			}
 		}
 		else if (RPN::is_operator(input[i])) {
 			if (stack.size() < 2) {
-				std::cout << "Error\n";
+				std::cerr << "Error\n";
 				return false;
 			}
 			int nb1 = stack.top();
 			if (nb1 == 0 && input[i] == '/') {
-				std::cout << "Error: division by zero\n";
+				std::cerr << "Error: division by zero\n";
 				return false;
 			}
 			stack.pop();
@@ -66,12 +66,12 @@ bool RPN::read_input(std::string input)
 			stack.push(RPN::do_operation(input[i], nb1, nb2));
 		}
 		else if (input[i] != ' ') {
-			std::cout << "Error\n";
+			std::cerr << "Error\n";
 			return false;
 		}
 	}
 	if (stack.size() != 1) {
-		std::cout << "Error\n";
+		std::cerr << "Error\n";
 		return false;
 	}
 	std::cout << stack.top() << std::endl;	
