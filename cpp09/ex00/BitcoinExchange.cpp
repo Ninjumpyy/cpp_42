@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:51 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/09 11:46:34 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/09 11:50:42 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ BitcoinExchange::~BitcoinExchange() {}
 int	BitcoinExchange::print_exchange_rate_from_input(std::string input_file)
 {
 	if (!BitcoinExchange::read_data_base())
-		return 0; //value return by main later to indicate failure...
+		return 0; //Indicate failure...
 	
 	std::ifstream inputfile(input_file.c_str());
 	if (!inputfile.is_open()) {
@@ -49,7 +49,7 @@ int	BitcoinExchange::print_exchange_rate_from_input(std::string input_file)
 		BitcoinExchange::process_line(line);
 	}
 	inputfile.close();
-	return 1; //value return by main later to indicate success...
+	return 1; //Indicate success...
 }
 
 void	BitcoinExchange::process_line(std::string line)
@@ -107,6 +107,7 @@ bool	BitcoinExchange::read_data_base()
 		}
 		map_data.insert(std::pair<std::string, double>(date, rate));
 	}
+	inputfile.close();
 	return true;
 }
 
