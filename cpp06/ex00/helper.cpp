@@ -70,7 +70,7 @@ void	display_from_char(const std::string& s)
 	char	c;
 
 	c = s[0];
-
+	
 	std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
