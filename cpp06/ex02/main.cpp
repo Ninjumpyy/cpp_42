@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:09:11 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/11 15:58:33 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/10 13:36:39 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main(void)
 	identify(obj);
 	identify(*obj);
 
+    delete obj;
+    
 	std::cout << "Pointers Test\n";
 
 	Base* objA = new A();

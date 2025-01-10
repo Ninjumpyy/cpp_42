@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:21:16 by thomas            #+#    #+#             */
-/*   Updated: 2024/12/11 16:02:28 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/10 13:35:12 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void identify(Base* p)
 void identify(Base& p)
 {
 	try {
-		dynamic_cast<A&>(p);
+		A& a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "A" << std::endl;
 		return ;
 	}
@@ -52,7 +53,8 @@ void identify(Base& p)
 		//Not type A
 	}
 	try {
-		dynamic_cast<B&>(p);
+		B& b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << "B" << std::endl;
 		return ;
 	}
@@ -60,7 +62,8 @@ void identify(Base& p)
 		//Not type B
 	}
 	try {
-		dynamic_cast<C&>(p);
+		C& c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << "C" << std::endl;
 		return ;
 	}
