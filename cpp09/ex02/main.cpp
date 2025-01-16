@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:26:28 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/09 15:44:28 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/16 14:43:30 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int main(int argc, char **argv)
 	}
 
 	PMergeMe obj;
-	
-	return 0;
+	return obj.fordjohnson(++argv);
 }
