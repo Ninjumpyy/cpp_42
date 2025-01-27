@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tle-moel <tle-moel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:11:40 by thomas            #+#    #+#             */
-/*   Updated: 2025/01/16 18:10:34 by thomas           ###   ########.fr       */
+/*   Updated: 2025/01/27 17:32:34 by tle-moel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int PMergeMe::fordjohnson(char **argv)
 	// Ford-Johnson with a vector container
 	clock_t start, end;
 	start = clock();
-	std::vector<int> vec_sorted = fj_vector(vec, 2);
+	std::vector<int> vec_sorted = fj_vector(vec, 1);
 	end = clock();
 	double vectortime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
 	// Ford-Johnson with a deque container
 	start = clock();
-	std::deque<int> deq_sorted = fj_deque(deq, 2);
+	std::deque<int> deq_sorted = fj_deque(deq, 1);
 	end = clock();
 	double dequetime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
@@ -81,30 +81,53 @@ std::vector<int> PMergeMe::fj_vector(std::vector<int> vec, int n)
 {
 	//Step1 : Division into pairs and sorting
 
-	if (n > vec.size())
+	if ((n * 2) > vec.size())
 		return vec;
 	
-	int nb_comp = vec.size() / n;
-	int x1 = n / 2 - 1;
-	int x2 = n - 1;
+	int nb_comp = vec.size() / (n * 2);
+	int idx1 = n - 1;
+	int idx2 = idx1 + n;
 
 	for (int i = 0; i < nb_comp; i++)
 	{
-		if (vec[x2] < vec[x1])
+		if (vec[idx2] < vec[idx1])
 		{
 			std::vector<int>::iterator range1 = vec.begin() + i * n;
-			std::vector<int>::iterator range2 = range1 + n / 2;
+			std::vector<int>::iterator range2 = range1 + n;
 			std::swap_ranges(range1, range2, range2);
 		}
 
-		x2 += n;
-		x1 += n;
+		idx2 += (2 * n);
+		idx1 += (2 * n);
 	}
 	vec = fj_vector(vec, n * 2);
 
 	//Step2 : binary insertion algo
 
+	if (nb_comp == 1)
+	{
+		if (vec[(n * 2) - 1] < vec[n - 1])
+			std::swap_ranges(vec.begin(), vec.begin() + n, vec.begin() + n);
+		return vec;
+	}
 
+	// Init to_insert
+	std::vector<int> to_insert;
+
+	for (int i = (n * 3) - 1; i < vec.size(); i + (2 * n)) {
+		to_insert.push_back(vec[i]);
+	}
+
+	// Init search
+	std::vector<int> search;
+	search.push_back(vec[n - 1]);
+	for (int i = (n * 2) - 1; i < vec.size(); i + (2 * n)) {
+		search.push_back(vec[i]);
+	}
+
+	//Init main that will be my new vector
+	std::vector<int> main (vec.size());
+	std::copy (vec.begin(), vec.begin() + (n * 2), main.begin());
 
 }
 
